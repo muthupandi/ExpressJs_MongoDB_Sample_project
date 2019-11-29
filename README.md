@@ -10,7 +10,7 @@ NodeJS project is developed with the following technologies.
 Steps:                                                                                    
 1) Create directory and Clone the project
 
-=> git clone https://github.com/muthupandifsp/ExpressJs_MongoDB_Sample_project.git expressjs-sample
+=> git clone https://github.com/muthupandi/ExpressJs_MongoDB_Sample_project.git expressjs-sample
 
 2) Moved to the project directory
 

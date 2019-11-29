@@ -1,0 +1,89 @@
+<%- include ../Element/account_header.ejs -%>
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+                <%- include ../Element/account_sidebar.ejs -%>
+            <div class="col-md-8">
+                <div class="profile-head">
+                    <h5>
+                        <%= user.firstname+' '+user.lastname %>
+                    </h5>
+                    <h6>
+                        <%= (typeof user.profession != 'undefined') ? user.profession : '-' %>
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= user.firstname+' '+user.lastname %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Username</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%= user.username %></p>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= user.email %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= (typeof user.phone != 'undefined') ? user.phone : '-' %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Profession</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= (typeof user.profession != 'undefined') ? user.profession : '-' %></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Website</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= user.website %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><%= user.street+', '+user.city+', '+user.state+', '+user.country %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        
+    </form>
+</div>
+<%- include ../Element/account_footer.ejs -%>

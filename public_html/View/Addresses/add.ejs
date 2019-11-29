@@ -1,0 +1,91 @@
+<%- include ../Element/account_header.ejs -%>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <%- include ../Element/account_sidebar.ejs -%>
+            <div class="col-md-8">
+                <div class="profile-head">
+                    <h5>
+                        <%= user.firstname+' '+user.lastname %>
+                    </h5>
+                    <h6>
+                        <%= (typeof user.profession != 'undefined') ? user.profession : '-' %>
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
+                    <div class="main-content">
+                        <h4>Add Address</h4>
+                        <form role="form" action='/address/add' method="POST">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Name<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="name" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Street<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="street" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">City<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="city" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">State<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="state" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Country</label>
+                                <div class="col-lg-9">
+                                    <input name="country" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Pin Code</label>
+                                <div class="col-lg-9">
+                                    <input name="pincode" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel" />
+                                    <input type="submit" class="btn btn-primary" value="Save Changes" />
+                                </div>
+                            </div>
+                        </form>
+                        
+                       
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<!-- Hidden element for appending phone -->
+<div id="phone_extra_field" style="display:none">
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label"></label>
+        <div class="col-lg-6">
+            <input name="phone[]" class="form-control" type="text" value="<%= (user.website) ? user.website : '' %>" />
+        </div>
+        <div class="col-lg-3 phone_class" id="1">
+            <input type='button' value="+" class='add_button'>
+            <input type='button' value="-" class='remove_button'>  
+        </div> 
+    </div>
+</div>
+
+<%- include ../Element/account_footer.ejs -%>
+

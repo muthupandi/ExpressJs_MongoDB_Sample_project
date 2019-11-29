@@ -1,0 +1,145 @@
+<%- include ../Element/account_header.ejs -%>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <%- include ../Element/account_sidebar.ejs -%>
+            <div class="col-md-8">
+                <div class="profile-head">
+                    <h5>
+                        <%= user.firstname+' '+user.lastname %>
+                    </h5>
+                    <h6>
+                        <%= (typeof user.profession != 'undefined') ? user.profession : '-' %>
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
+                    <div class="main-content">
+                        <h4>Edit Profile</h4>
+                        <form role="form" action='/users/profile' method="POST">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">First name<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="firstname" class="form-control" type="text" value="<%= user.firstname %>" />
+                                    <% if((typeof errors == 'object') && (typeof errors.firstname != 'undefined')){ %> 
+                                    <span class="message_error"><%= errors.firstname %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Last name<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="lastname" class="form-control" type="text" value="<%= user.lastname %>" />
+                                    <% if((typeof errors == 'object') && (typeof errors.lastname != 'undefined')){ %> 
+                                        <span class="message_error"><%= errors.lastname %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Username<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="username" class="form-control" type="text" value="<%= user.username %>" />
+                                    <% if((typeof errors == 'object') && (typeof errors.username != 'undefined')){ %> 
+                                        <span class="message_error"><%= errors.username %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Email<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="email" class="form-control" type="email" value="<%= user.email %>" />
+                                    <% if((typeof errors == 'object') && (typeof errors.email != 'undefined')){ %> 
+                                        <span class="message_error"><%= errors.email %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                <div class="col-lg-9">
+                                    <input name="website" class="form-control" type="url" value="<%= (user.website) ? user.website : '' %>" />
+                                </div>
+                            </div>
+
+                            <% if(typeof user.phone != 'undefined' && user.phone != null ){ %>
+                                <% for(var i=0; i<user.phone.length; i++){ %>
+                                    <% if(i==0){ %>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Phone No</label>
+                                            <div class="col-lg-6">
+                                                <input name="phone[]" class="form-control" type="text" value="<%= user.phone[i]  %>" />
+                                            </div>
+                                            <div class="col-lg-3 phone_class" id="1" >
+                                                <input type='button' value='+' class='add_button'>
+                                                <input type='button' value='-' class='remove_button'>  
+                                            </div> 
+                                        </div>
+                                    <% }else { %>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                                            <div class="col-lg-6">
+                                                <input name="phone[]" class="form-control" type="text" value="<%= user.phone[i]  %>" />
+                                            </div>
+                                            <div class="col-lg-3 phone_class" id="1" >
+                                                <input type='button' value='+' class='add_button'>
+                                                <input type='button' value='-' class='remove_button'>  
+                                            </div> 
+                                        </div>
+                                    <% }  %>
+                                <% } %>
+                            <% }else { %>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Phone No</label>
+                                    <div class="col-lg-6">
+                                        <input name="phone[]" class="form-control" type="text" value="" />
+                                    </div>
+                                    <div class="col-lg-3 phone_class" id="1" >
+                                        <input type='button' value='+' class='add_button'>
+                                        <input type='button' value='-' class='remove_button'>  
+                                    </div>
+                                </div>
+                            <% } %>
+                            
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel" />
+                                    <input type="submit" class="btn btn-primary" value="Save Changes" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>Update Other Details</h4>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <a href="">Change Password</a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="">Add Address</a>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<!-- Hidden element for appending phone -->
+<div id="phone_extra_field" style="display:none">
+    <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label"></label>
+        <div class="col-lg-6">
+            <input name="phone[]" class="form-control" type="text" value="<%= (user.website) ? user.website : '' %>" />
+        </div>
+        <div class="col-lg-3 phone_class" id="1">
+            <input type='button' value="+" class='add_button'>
+            <input type='button' value="-" class='remove_button'>  
+        </div> 
+    </div>
+</div>
+
+<%- include ../Element/account_footer.ejs -%>
+

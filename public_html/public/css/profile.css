@@ -1,0 +1,134 @@
+body{
+    background: #60a3bc !important;
+}
+.emp-profile{
+    padding: 3% 3% 10% 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    /* height: 100%; */
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.message_error{
+    color: #c0392b;
+    font-size:13px;
+}
+.logout{
+    padding: 10px;
+    background: #c0392b !important;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+}
+.mand-class{
+    color: #c0392b;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #c0392b;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #c0392b !important;
+}
+.btn-primary{
+    background:#c0392b;
+    border:#c0392b;
+}
+.btn-primary:hover{
+    background:#c0392b;
+    border:#c0392b;
+}
+.main-content{
+   padding-top:10%; 
+}
+.main-content h4{
+    margin-bottom:15px; 
+    min-height:15px;
+    border-bottom: 1px solid #dee2e6;
+    color: #c0392b;
+ }
+.profile-work{
+    padding: 14% 14% 0 3%;
+}
+.profile-work p{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left:14%;
+}
+.profile-work li{
+    font-size: 12px;
+    color: #dee2e6;
+    margin-top: 5px;
+    border-bottom: 1px solid #dee2e6;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #c0392b;
+    font-size: 18px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color:#c0392b !important;
+}
+
+.footer{
+    text-align:center;
+    padding-bottom:20px;
+}

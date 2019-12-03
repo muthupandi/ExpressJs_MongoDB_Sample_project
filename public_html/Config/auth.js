@@ -35,11 +35,7 @@ var myLocalConfig = (app, passport) => {
         newUser.email = req.body.email;
         newUser.password = newUser.generateHash(password);
         newUser.user_type = 3; //1-Admin, 2-Doctor 3-Admin
-        var addresses = [
-          {name: 'home', street: 'W Division', city: 'Chicago'},
-          {name: 'office 1', street: 'Beekman', city: 'New York'},
-          {name: 'office 2', street: 'Florence', city: 'Los Angeles'},
-      ];
+        
       newUser.addresses = addresses;
         
         newUser.save(function (err) {

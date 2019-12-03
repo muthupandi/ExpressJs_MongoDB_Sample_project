@@ -22,8 +22,11 @@ app.all('/address/add', function(req, res, err){
             var user = result;
             user.addresses.push(address);
             user.save(function(err, result) {
-                console.log(result);
-                res.redirect('/address/list');
+                req.login(user, function(err) { //This update passport user session with recent changes
+                    if (err) return next(err)
+                    res.redirect('/address/list');
+                })
+                
             });
         });
     }

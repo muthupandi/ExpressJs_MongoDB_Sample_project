@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const address = require('./Addresses');
+const address = require('./Address');
 
 const UserSchema = new mongoose.Schema({
     

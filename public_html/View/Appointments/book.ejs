@@ -1,0 +1,82 @@
+<%- include ../Element/account_header.ejs -%>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <%- include ../Element/account_sidebar.ejs -%>
+            <div class="col-md-8">
+                <div class="profile-head">
+                    <h5>
+                        <%= user.firstname+' '+user.lastname %>
+                    </h5>
+                    <h6>
+                        <%= (typeof user.profession != 'undefined') ? user.profession : '-' %>
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
+                    <div class="main-content">
+                        <h4>Add Address</h4>
+                        <form role="form" action='/address/add' method="POST">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Patient Name<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="patient_name" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Doctor Name<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <select name="doctor_id" class="form-control">
+                                        <% if(doctors != ""){ %>
+                                            <% doctors.forEach(function(doctor) { %>
+                                                <option value="<%= doctor._id %>"><%= doctor.firstname + doctor.lastname %></option>
+                                            <% }); %>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Gender<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <select name="gender" class="form-control">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Phone<span class="mand-class">*</span></label>
+                                <div class="col-lg-9">
+                                    <input name="phone" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Appointment Date and Time</label>
+                                <div class="col-lg-9">
+                                    <input name="appointment_datetime" class="form-control" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel" />
+                                    <input type="submit" class="btn btn-primary" value="Save Changes" />
+                                </div>
+                            </div>
+                        </form>
+                        
+                       
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+
+<%- include ../Element/account_footer.ejs -%>
+

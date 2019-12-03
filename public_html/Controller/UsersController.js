@@ -66,12 +66,6 @@ app.get('/users/dashboard',
       var conditions = {'_id' : new ObjectId(req.user.id)}
       var update_data = req.body;
       update_data.phone = req.body.phone;
-      var addresses = [
-        {name: 'home', street: 'W Division', city: 'Chicago'},
-        {name: 'office 11', street: 'Beekman', city: 'New York'},
-        {name: 'office 12', street: 'Florence', city: 'Los Angeles'},
-    ];
-    update_data.addresses.push(addresses);
       
       User.findOneAndUpdate(conditions, update_data, {upsert:false, new: true, runValidators: true}, function(err, doc){
         req.session.errors={};
